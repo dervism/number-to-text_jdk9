@@ -4,6 +4,7 @@ import no.dervis.numbertotext.api.language.Language;
 import no.dervis.numbertotext.api.spi.NumberResourcesProvider;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.ServiceLoader;
 
 import static no.dervis.numbertotext.api.language.Language.NONE;
@@ -14,15 +15,22 @@ public class Generator {
 
     private Language lang;
     private Map<Integer, String> map;
-    private ServiceLoader<NumberResourcesProvider> providers;
 
     TriFunction<String, String, String, String> and =
             (left, right, combiner) -> left.equals(map.get(0)) ? combiner : left + SPACE + right;
 
-    public Generator() {
-        providers = ServiceLoader.load(NumberResourcesProvider.class);
-        NumberResourcesProvider next = providers.iterator().next();
-        lang = next.getLanguage("no");
+    public Generator(Language lang) {
+        this.lang = Objects.requireNonNull(lang);
+    }
+
+    public static Generator createFromLanguageProviders() {
+        Language lang = ServiceLoader
+                .load(NumberResourcesProvider.class).stream()
+                .map(ServiceLoader.Provider::get)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("No providers found."))
+                .getLanguage("no");
+        return new Generator(lang);
     }
 
     public String convert(int number) {

@@ -12,7 +12,7 @@ public class GeneratorTest {
 
     @BeforeEach
     public void setup() {
-        generator = new Generator();
+        generator = Generator.createFromLanguageProviders();
     }
 
     @Test
