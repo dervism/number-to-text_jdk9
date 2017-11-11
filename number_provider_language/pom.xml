@@ -11,11 +11,10 @@
     </parent>
 
     <groupId>no.dervis.numbertext</groupId>
-    <artifactId>number_generator</artifactId>
+    <artifactId>number_provider_language</artifactId>
     <version>1.0</version>
 
     <dependencies>
-
         <dependency>
             <groupId>no.dervis.numbertext</groupId>
             <artifactId>number_api</artifactId>

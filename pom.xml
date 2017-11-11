@@ -11,8 +11,8 @@
 
     <modules>
       <module>number_api</module>
-      <module>number_generator</module>
-      <module>number_language</module>
+      <module>number_user_generator</module>
+      <module>number_provider_language</module>
     </modules>
 
     <properties>
