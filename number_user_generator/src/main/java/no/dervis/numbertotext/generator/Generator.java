@@ -16,21 +16,17 @@ public class Generator {
     private Language lang;
     private Map<Integer, String> map;
 
-    TriFunction<String, String, String, String> and =
+    private TriFunction<String, String, String, String> and =
             (left, right, combiner) -> left.equals(map.get(0)) ? combiner : left + SPACE + right;
 
-    public Generator(Language lang) {
-        this.lang = Objects.requireNonNull(lang);
-    }
-
-    public static Generator createFromLanguageProviders() {
-        Language lang = ServiceLoader
-                .load(NumberResourcesProvider.class).stream()
-                .map(ServiceLoader.Provider::get)
+    public Generator() {
+        ServiceLoader<NumberResourcesProvider> providers = ServiceLoader.load(NumberResourcesProvider.class);
+        NumberResourcesProvider next = providers
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("No providers found."))
-                .getLanguage("no");
-        return new Generator(lang);
+                .orElseThrow(() -> new RuntimeException("No providers found."));
+
+        this.lang = next.getLanguage("no");
+        this.map = lang.getLanguageMap();
     }
 
     public String convert(int number) {

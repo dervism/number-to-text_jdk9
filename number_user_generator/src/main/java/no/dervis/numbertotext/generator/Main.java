@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Generator generator = Generator.createFromLanguageProviders();
+        Generator generator = new Generator();
 
         System.out.println(generator.convert(123));
 
