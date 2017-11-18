@@ -1,4 +1,4 @@
-module number_generator {
+module number_main {
     requires number_api;
 
     exports no.dervis.numbertotext.generator;

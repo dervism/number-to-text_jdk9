@@ -18,14 +18,16 @@ public class Generator {
     private TriFunction<String, String, String, String> and =
             (left, right, combiner) -> left.equals(map.get(0)) ? combiner : left + SPACE + right;
 
-    public Generator() {
-        ServiceLoader<NumberResourcesProvider> providers = ServiceLoader.load(NumberResourcesProvider.class);
-        NumberResourcesProvider next = providers
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("No providers found."));
-
-        this.lang = next.getLanguage("no");
+    public Generator(Language lang) {
+        this.lang = lang;
         this.map = lang.getLanguageMap();
+    }
+
+    public Generator() {
+        this(ServiceLoader.load(NumberResourcesProvider.class)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("No providers found."))
+                .getLanguage());
     }
 
     public String convert(int number) {

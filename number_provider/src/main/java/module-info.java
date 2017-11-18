@@ -1,4 +1,4 @@
-module number_language {
+module number_provider {
     requires number_api;
 
     provides no.dervis.numbertotext.api.spi.NumberResourcesProvider

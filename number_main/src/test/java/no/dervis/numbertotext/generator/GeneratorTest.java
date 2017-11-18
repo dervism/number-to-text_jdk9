@@ -1,18 +1,23 @@
 package no.dervis.numbertotext.generator;
 
-import org.junit.jupiter.api.BeforeEach;
+import no.dervis.numbertotext.api.spi.NumberResourcesProvider;
+import no.dervis.numbertotext.language.impl.NumberResourcesProviderImpl;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class GeneratorTest {
 
     private Generator generator;
 
-    @BeforeEach
+    @BeforeAll
     public void setup() {
-        generator = new Generator();
+        NumberResourcesProvider provider = new NumberResourcesProviderImpl();
+        generator = new Generator(provider.getLanguage("no"));
     }
 
     @Test
@@ -20,7 +25,6 @@ public class GeneratorTest {
     public void testMillions() throws Exception {
         assertEquals(generator.millions(1_000_000), "en million");
         assertEquals(generator.convert(1_000_000), "en million");
-
 
         assertEquals(generator.millions(1_250_300), "en million to hundre og femti tusen tre hundre");
         assertEquals(generator.millions(1_250_301), "en million to hundre og femti tusen tre hundre og en");
