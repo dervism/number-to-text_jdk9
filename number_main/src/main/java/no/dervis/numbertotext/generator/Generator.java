@@ -4,7 +4,6 @@ import no.dervis.numbertotext.api.language.Language;
 import no.dervis.numbertotext.api.spi.NumberResourcesProvider;
 
 import java.util.Map;
-import java.util.Objects;
 import java.util.ServiceLoader;
 
 import static no.dervis.numbertotext.api.language.Language.NONE;
