@@ -23,7 +23,7 @@
 
         <dependency>
             <groupId>no.dervis.numbertext</groupId>
-            <artifactId>number_provider_language</artifactId>
+            <artifactId>number_provider</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>
