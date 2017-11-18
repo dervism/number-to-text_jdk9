@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.dervis.numbertext</groupId>
-    <artifactId>number_parent</artifactId>
+    <artifactId>number_kata</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
 

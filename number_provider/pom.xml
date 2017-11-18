@@ -6,7 +6,7 @@
 
     <parent>
       <groupId>no.dervis.numbertext</groupId>
-      <artifactId>number_parent</artifactId>
+      <artifactId>number_kata</artifactId>
       <version>1.0</version>
     </parent>
 
