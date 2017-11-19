@@ -22,6 +22,7 @@
         <junit.jupiter.version>5.0.1</junit.jupiter.version>
         <junit.platform.version>1.0.1</junit.platform.version>
         <junit.vintage.version>4.12.1</junit.vintage.version>
+        <arg>100</arg>
     </properties>
 
     <dependencies>
@@ -69,8 +70,28 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>--module-path</argument> <!-- or -p  -->
+                        <modulepath/>
+                        <argument>--module</argument> <!-- or -m -->
+                        <argument>number_main/no.dervis.numbertotext.generator.Main</argument>
+                        <argument>${arg}</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
-
 </project>
