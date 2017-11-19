@@ -11,8 +11,4 @@ public interface Language {
     String NONE = "";
 
     String AND();
-
-    default String PADDING() {
-        return SPACE + AND();
-    }
 }

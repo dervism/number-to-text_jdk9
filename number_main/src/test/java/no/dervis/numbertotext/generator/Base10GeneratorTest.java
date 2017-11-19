@@ -10,14 +10,14 @@ import org.junit.jupiter.api.TestInstance;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class GeneratorTest {
+public class Base10GeneratorTest {
 
-    private Generator generator;
+    private Base10Generator generator;
 
     @BeforeAll
     public void setup() {
         NumberResourcesProvider provider = new NumberResourcesProviderImpl();
-        generator = new Generator(provider.getLanguage("no"));
+        generator = new Base10Generator(provider.getLanguage("no"));
     }
 
     @Test
@@ -85,6 +85,22 @@ public class GeneratorTest {
         assertEquals(generator.hundreds_thousands(700_701), "syv hundre tusen syv hundre og en");
         assertEquals(generator.hundreds_thousands(999_990), "ni hundre og nittini tusen ni hundre og nitti");
         assertEquals(generator.convert(999_990), "ni hundre og nittini tusen ni hundre og nitti");
+    }
+
+    @Test
+    @DisplayName("Test Ten Thousands")
+    public void testTensThousands() {
+        assertEquals(generator.convert(10_000), "ti tusen");
+        assertEquals(generator.convert(10_001), "ti tusen og en");
+        assertEquals(generator.convert(10_101), "ti tusen ett hundre og en");
+        assertEquals(generator.convert(20_000), "tjue tusen");
+        assertEquals(generator.convert(20_100), "tjue tusen ett hundre");
+        assertEquals(generator.convert(20_001), "tjue tusen og en");
+        assertEquals(generator.convert(24_679), "tjuefire tusen seks hundre og syttini");
+        assertEquals(generator.convert(64_234), "sekstifire tusen to hundre og trettifire");
+        assertEquals(generator.convert(99_000), "nittini tusen");
+        assertEquals(generator.convert(99_001), "nittini tusen og en");
+        assertEquals(generator.convert(99_010), "nittini tusen og ti");
     }
 
     @Test
