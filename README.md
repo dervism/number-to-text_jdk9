@@ -23,7 +23,7 @@ twentythree thousand four hundred and fiftysix
 Or use maven exec-plugin inside the `number_main` module:
 
 ```
-$ mvn exec:exec -Dnumber="$1" -Dlang="$2"
+$ mvn exec:exec -Dnumber="123" -Dlang="en"
 [INFO] ------------------------------------------------------------------------
 [INFO] --- exec-maven-plugin:1.6.0:exec (default-cli) @ number_main ---
 one hundred and twentythree
