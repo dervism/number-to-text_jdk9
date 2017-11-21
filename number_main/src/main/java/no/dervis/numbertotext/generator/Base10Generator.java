@@ -1,6 +1,7 @@
 package no.dervis.numbertotext.generator;
 
 import no.dervis.numbertotext.api.generator.Generator;
+ import no.dervis.numbertotext.api.generator.TriFunction;
 import no.dervis.numbertotext.api.language.Language;
 import no.dervis.numbertotext.api.spi.NumberResourcesProvider;
 
@@ -27,11 +28,11 @@ public class Base10Generator implements Generator {
         this.map = lang.getLanguageMap();
     }
 
-    public Base10Generator() {
+    public Base10Generator(String lang) {
         this(ServiceLoader.load(NumberResourcesProvider.class)
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("No providers found."))
-                .getLanguage());
+                .getLanguage(lang));
     }
 
     @Override

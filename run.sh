@@ -4,4 +4,4 @@ set -e
 
 cd number_main
 
-mvn exec:exec -Darg="$1"
+mvn exec:exec -Dnumber="$1" -Dlang="$2"

@@ -6,7 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Generator base10Generator = new Base10Generator();
+        String[] defaultArgs = {"100", "en"};
+        if (args.length != 2) args = defaultArgs;
+
+        Generator base10Generator = new Base10Generator(args[1]);
 
         System.out.println(base10Generator.convert(Integer.parseInt(args[0])));
 

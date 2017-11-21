@@ -1,4 +1,4 @@
-package no.dervis.numbertotext.generator;
+package no.dervis.numbertotext.api.generator;
 
 @FunctionalInterface
 public interface TriFunction <T, U, K, R> {
