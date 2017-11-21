@@ -2,7 +2,7 @@
 
 Run `run.sh` to test the application from the commandline:
 
-With a language flag:
+##### With a language flag:
 ```
 $ sh run.sh 23456 no
 [INFO] ------------------------------------------------------------------------
@@ -11,7 +11,7 @@ tjuetre tusen fire hundre og femtiseks
 [INFO] ------------------------------------------------------------------------
 ```
 
-Without a language flag (defaults to English):
+##### Without a language flag (defaults to English):
 ```
 $ sh run.sh 23456
 [INFO] ------------------------------------------------------------------------
@@ -20,7 +20,7 @@ twentythree thousand four hundred and fiftysix
 [INFO] ------------------------------------------------------------------------
 ```
 
-Or use maven exec-plugin inside the `number_main` module:
+##### Or use maven exec-plugin inside the `number_main` module:
 
 ```
 $ mvn exec:exec -Dnumber="123" -Dlang="en"
@@ -29,3 +29,7 @@ $ mvn exec:exec -Dnumber="123" -Dlang="en"
 one hundred and twentythree
 [INFO] ------------------------------------------------------------------------
 ```
+
+##### Java 8 version:
+
+https://github.com/dervism/number-to-text
