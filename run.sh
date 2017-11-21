@@ -4,4 +4,9 @@ set -e
 
 cd number_main
 
-mvn exec:exec -Dnumber="$1" -Dlang="$2"
+LANG=$2
+if [ -z "$2" ]; then
+    LANG=en
+fi
+
+mvn exec:exec -Dnumber="$1" -Dlang="$LANG"
