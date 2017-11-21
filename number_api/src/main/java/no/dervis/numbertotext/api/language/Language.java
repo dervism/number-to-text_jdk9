@@ -8,7 +8,10 @@ public interface Language {
     String prefixRule(int n, int div);
 
     String SPACE = " ";
+    String HYPHEN = "-";
     String NONE = "";
 
     String AND();
+
+    String TEN_SPACER();
 }

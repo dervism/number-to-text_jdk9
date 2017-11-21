@@ -33,3 +33,7 @@ one hundred and twentythree
 ##### Java 8 version:
 
 https://github.com/dervism/number-to-text
+
+##### Articles
+
+[The Difference Between Log And Ln](https://math.stackexchange.com/questions/90594/the-difference-between-log-and-ln)

@@ -141,7 +141,7 @@ public class Base10GeneratorTest {
     }
 
     @Test
-    @DisplayName("Test ")
+    @DisplayName("Test Tens")
     public void testTens() throws Exception {
         assertEquals(generator.tens(0), "null");
         assertEquals(generator.tens(1), "en");

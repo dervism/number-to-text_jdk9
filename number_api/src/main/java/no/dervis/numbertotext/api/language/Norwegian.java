@@ -18,6 +18,10 @@ public class Norwegian implements Language {
         return map;
     }
 
+    /**
+     * Corrects Norwegian prefix for hundreds and thousands.
+     * Changes "en hundre" and "en tusen" to "ett hundre" and "ett tusen".
+     */
     @Override
     public String prefixRule(int n, int div) {
         String en = map.get(n / div);
@@ -27,5 +31,10 @@ public class Norwegian implements Language {
     @Override
     public String AND() {
         return OG;
+    }
+
+    @Override
+    public String TEN_SPACER() {
+        return NONE;
     }
 }

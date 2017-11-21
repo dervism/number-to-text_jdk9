@@ -25,4 +25,9 @@ public class English implements Language {
         return "and";
     }
 
+    @Override
+    public String TEN_SPACER() {
+        return SPACE;
+    }
+
 }

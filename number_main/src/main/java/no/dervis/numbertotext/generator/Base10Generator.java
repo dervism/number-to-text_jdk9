@@ -114,9 +114,12 @@ public class Base10Generator implements Generator {
                 + SPACE + tens(n % 100);
     }
 
+    /**
+     * n = 75 = 70 + 5 = seventy-five
+     */
     @Override
     public String tens(int n) {
         if (n <= 20 || map.containsKey(n)) return map.get(n);
-        return map.get(10 * (n / 10)) + map.get(n % 10);
+        return map.get(10 * (n / 10)) + lang.TEN_SPACER() + map.get(n % 10);
     }
 }
